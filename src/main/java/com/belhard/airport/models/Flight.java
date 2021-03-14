@@ -1,8 +1,11 @@
 package com.belhard.airport.models;
 
+
+
+
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Time;
+import java.util.Date;
+
 
 @Entity
 @Table(name = "flights")
@@ -16,9 +19,9 @@ public class Flight {
     @Temporal(TemporalType.DATE)
     private Date flightDate;
 
-    @Column (name = "flight_date")
-    @Temporal(TemporalType.TIME)
-    private Time flightTime;
+//    @Column (name = "flight_date")
+//    @Temporal(TemporalType.TIME)
+//    private Time flightTime;
 
     @Column(name = "flight_number")
     private char flightNumber;
@@ -34,11 +37,11 @@ public class Flight {
 
     public Flight() {    }
 
-    public Flight(Date flightDate, Time flightTime, char flightNumber) {
-        this.flightDate = flightDate;
-        this.flightTime = flightTime;
-        this.flightNumber = flightNumber;
-    }
+//    public Flight(Date flightDate, Time flightTime, char flightNumber) {
+//        this.flightDate = flightDate;
+//        this.flightTime = flightTime;
+//        this.flightNumber = flightNumber;
+//    }
 
     public long getId() {
         return id;
@@ -56,13 +59,13 @@ public class Flight {
         this.flightDate = flightDate;
     }
 
-    public Time getFlightTime() {
-        return flightTime;
-    }
-
-    public void setFlightTime(Time flightTime) {
-        this.flightTime = flightTime;
-    }
+//    public Time getFlightTime() {
+//        return flightTime;
+//    }
+//
+//    public void setFlightTime(Time flightTime) {
+//        this.flightTime = flightTime;
+//    }
 
     public char getFlightNumber() {
         return flightNumber;
