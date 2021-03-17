@@ -4,6 +4,7 @@ package com.belhard.airport.models;
 
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -17,11 +18,11 @@ public class Flight {
 
     @Column (name = "flight_date")
     @Temporal(TemporalType.DATE)
-    private Date flightDate;
+    private Calendar flightDate;
 
-//    @Column (name = "flight_date")
-//    @Temporal(TemporalType.TIME)
-//    private Time flightTime;
+    @Column (name = "flight_time")
+    @Temporal(TemporalType.TIME)
+    private Date flightTime;
 
     @Column(name = "flight_number")
     private char flightNumber;
@@ -37,11 +38,13 @@ public class Flight {
 
     public Flight() {    }
 
-//    public Flight(Date flightDate, Time flightTime, char flightNumber) {
-//        this.flightDate = flightDate;
-//        this.flightTime = flightTime;
-//        this.flightNumber = flightNumber;
-//    }
+    public Flight(Calendar flightDate, Date flightTime, char flightNumber, Airplane airplane, Pilot pilot) {
+        this.flightDate = flightDate;
+        this.flightTime = flightTime;
+        this.flightNumber = flightNumber;
+        this.airplane = airplane;
+        this.pilot = pilot;
+    }
 
     public long getId() {
         return id;
@@ -51,21 +54,21 @@ public class Flight {
         this.id = id;
     }
 
-    public Date getFlightDate() {
+    public Calendar getFlightDate() {
         return flightDate;
     }
 
-    public void setFlightDate(Date flightDate) {
+    public void setFlightDate(Calendar flightDate) {
         this.flightDate = flightDate;
     }
 
-//    public Time getFlightTime() {
-//        return flightTime;
-//    }
-//
-//    public void setFlightTime(Time flightTime) {
-//        this.flightTime = flightTime;
-//    }
+    public Date getFlightTime() {
+        return flightTime;
+    }
+
+    public void setFlightTime(Date flightTime) {
+        this.flightTime = flightTime;
+    }
 
     public char getFlightNumber() {
         return flightNumber;
@@ -90,5 +93,4 @@ public class Flight {
     public void setPilot(Pilot pilot) {
         this.pilot = pilot;
     }
-
 }
