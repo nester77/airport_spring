@@ -1,6 +1,6 @@
-package com.belhard.airport.repo;
+package com.belhard.airport.repository;
 
-import com.belhard.airport.models.Flight;
+import com.belhard.airport.entity.Flight;
 import org.springframework.data.repository.CrudRepository;
 
 public interface FlightRepository extends CrudRepository<Flight, Long> {

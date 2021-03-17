@@ -1,4 +1,4 @@
-package com.belhard.airport.models;
+package com.belhard.airport.entity;
 
 
 
@@ -13,7 +13,7 @@ import java.util.Date;
 public class Flight {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column (name = "flight_date")
@@ -25,7 +25,7 @@ public class Flight {
     private Date flightTime;
 
     @Column(name = "flight_number")
-    private char flightNumber;
+    private String flightNumber;
 
     @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn (name = "airplane_id", referencedColumnName = "id")
@@ -38,7 +38,7 @@ public class Flight {
 
     public Flight() {    }
 
-    public Flight(Calendar flightDate, Date flightTime, char flightNumber, Airplane airplane, Pilot pilot) {
+    public Flight(Calendar flightDate, Date flightTime, String flightNumber, Airplane airplane, Pilot pilot) {
         this.flightDate = flightDate;
         this.flightTime = flightTime;
         this.flightNumber = flightNumber;
@@ -70,11 +70,11 @@ public class Flight {
         this.flightTime = flightTime;
     }
 
-    public char getFlightNumber() {
+    public String getFlightNumber() {
         return flightNumber;
     }
 
-    public void setFlightNumber(char flightNumber) {
+    public void setFlightNumber(String flightNumber) {
         this.flightNumber = flightNumber;
     }
 

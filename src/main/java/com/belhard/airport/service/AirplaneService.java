@@ -1,7 +1,7 @@
 package com.belhard.airport.service;
 
-import com.belhard.airport.models.Airplane;
-import com.belhard.airport.repo.AirplaneRepository;
+import com.belhard.airport.entity.Airplane;
+import com.belhard.airport.repository.AirplaneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

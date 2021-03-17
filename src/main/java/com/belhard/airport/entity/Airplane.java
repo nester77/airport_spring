@@ -1,32 +1,41 @@
-package com.belhard.airport.models;
+package com.belhard.airport.entity;
 
 
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.GenerationType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.OneToMany;
+
+
+
 import java.util.List;
 
 @Entity
 @Table(name = "airplanes")
   public class Airplane {
 @Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 private long id;
-private char brand;
-private char model;
+private String brand;
+private String model;
 @Column(name = "passenger_capacity")
-private char passengerCapacity;
+private int passengerCapacity;
 @Column (name = "board_number")
-private char boardNumber;
+private String boardNumber;
 
-@OneToMany (mappedBy = "airplane", cascade = CascadeType.ALL)
+@OneToMany (mappedBy = "airplane")
 private List<Flight> flights;
 
 public Airplane() { }
 
-public Airplane( char brand,  char model, char passengerCapacity,  char boardNumber) {
-        this.brand = brand;
-        this.model = model;
-        this.passengerCapacity = passengerCapacity;
-        this.boardNumber = boardNumber;
+        public Airplane(String brand, String model, int passengerCapacity, String boardNumber) {
+                this.brand = brand;
+                this.model = model;
+                this.passengerCapacity = passengerCapacity;
+                this.boardNumber = boardNumber;
         }
 
         public long getId() {
@@ -37,35 +46,35 @@ public Airplane( char brand,  char model, char passengerCapacity,  char boardNum
                 this.id = id;
         }
 
-        public char getBrand() {
+        public String getBrand() {
                 return brand;
         }
 
-        public void setBrand(char brand) {
+        public void setBrand(String brand) {
                 this.brand = brand;
         }
 
-        public char getModel() {
+        public String getModel() {
                 return model;
         }
 
-        public void setModel(char model) {
+        public void setModel(String model) {
                 this.model = model;
         }
 
-        public char getPassengerCapacity() {
+        public int getPassengerCapacity() {
                 return passengerCapacity;
         }
 
-        public void setPassengerCapacity(char passengerCapacity) {
+        public void setPassengerCapacity(int passengerCapacity) {
                 this.passengerCapacity = passengerCapacity;
         }
 
-        public char getBoardNumber() {
+        public String getBoardNumber() {
                 return boardNumber;
         }
 
-        public void setBoardNumber(char boardNumber) {
+        public void setBoardNumber(String boardNumber) {
                 this.boardNumber = boardNumber;
         }
 

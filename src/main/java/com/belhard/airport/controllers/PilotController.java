@@ -1,6 +1,6 @@
 package com.belhard.airport.controllers;
 
-import com.belhard.airport.repo.PilotRepository;
+import com.belhard.airport.repository.PilotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

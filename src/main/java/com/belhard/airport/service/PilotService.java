@@ -1,7 +1,7 @@
 package com.belhard.airport.service;
 
-import com.belhard.airport.models.Pilot;
-import com.belhard.airport.repo.PilotRepository;
+import com.belhard.airport.entity.Pilot;
+import com.belhard.airport.repository.PilotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
