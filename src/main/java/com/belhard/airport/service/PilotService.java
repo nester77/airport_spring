@@ -17,7 +17,7 @@ public class PilotService {
 //        return pilotRepository.getOne();
 //    }
 
-    public List <Pilot> findAllPilots(){
+    public List <Pilot> getAllPilots(){
         return (List<Pilot>) pilotRepository.findAll();
     }
     public Pilot savePilot (Pilot pilot){

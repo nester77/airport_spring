@@ -1,12 +1,6 @@
 package com.belhard.airport.entity;
 
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.GenerationType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -26,18 +20,18 @@ public class Pilot {
     @Column (name = "pilot_code")
     private String pilotCode;
 
-    @OneToMany (mappedBy = "pilot")
+    @OneToMany (fetch = FetchType.EAGER, mappedBy = "pilot")
     private List<Flight> flights;
 
-    public Pilot() {}
-
-
-    public Pilot(String firstName, String lastName, String pilotRank, String pilotCode) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.pilotRank = pilotRank;
-        this.pilotCode = pilotCode;
-    }
+//    public Pilot() {}
+//
+//
+//    public Pilot(String firstName, String lastName, String pilotRank, String pilotCode) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.pilotRank = pilotRank;
+//        this.pilotCode = pilotCode;
+//    }
 
     public long getId() {
         return id;
@@ -100,7 +94,7 @@ public class Pilot {
                 ", lastName=" + lastName +
                 ", pilotRank=" + pilotRank +
                 ", pilotCode=" + pilotCode +
-//                ", flights=" + flights +
+                ", flights=" + flights +
                 '}';
     }
 }

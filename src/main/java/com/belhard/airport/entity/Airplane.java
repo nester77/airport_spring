@@ -26,8 +26,8 @@ private int passengerCapacity;
 @Column (name = "board_number")
 private String boardNumber;
 
-@OneToMany (mappedBy = "airplane")
-private List<Flight> flights;
+//@OneToMany (mappedBy = "airplane")
+//private List<Flight> flights;
 
 public Airplane() { }
 
@@ -78,16 +78,28 @@ public Airplane() { }
                 this.boardNumber = boardNumber;
         }
 
-        public List<Flight> getFlights() {
-                return flights;
-        }
+//        public List<Flight> getFlights() {
+//                return flights;
+//        }
 
-        public void setFlights(List<Flight> flights) {
-                if (flights !=null) {
-                        flights.forEach(p->{
-                                p.setAirplane(this);
-                        });
-                }
-                this.flights = flights;
+//        public void setFlights(List<Flight> flights) {
+//                if (flights !=null) {
+//                        flights.forEach(p->{
+//                                p.setAirplane(this);
+//                        });
+//                }
+//                this.flights = flights;
+//        }
+
+        @Override
+        public String toString() {
+                return "Airplane{" +
+                        "id=" + id +
+                        ", brand='" + brand + '\'' +
+                        ", model='" + model + '\'' +
+                        ", passengerCapacity=" + passengerCapacity +
+                        ", boardNumber='" + boardNumber + '\'' +
+//                        ", flights=" + flights +
+                        '}';
         }
 }

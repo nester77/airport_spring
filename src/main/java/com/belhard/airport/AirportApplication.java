@@ -21,7 +21,7 @@ public class AirportApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        List<Pilot> pilotList = pilotRepository.findAll();
+        List<Pilot> pilotList = pilotRepository.getAllPilot();
         for (Pilot pilot:pilotList) {
             System.out.println(pilot);
         }
