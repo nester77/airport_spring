@@ -1,37 +1,25 @@
-package com.belhard.airport.entity;
+package com.belhard.airport.dto;
+
+import com.belhard.airport.entity.Flight;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name = "pilots")
-public class Pilot {
+public class PilotDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column (name = "first_name")
     private String firstName;
-    @Column (name = "last_name")
     private String lastName;
-    @Column (name = "pilot_rank")
     private String pilotRank;
-    @Column (name = "pilot_code")
     private String pilotCode;
+    private List<FlightDto> flights;
 
-    @OneToMany (fetch = FetchType.LAZY, mappedBy = "pilot")
-    private List<Flight> flights;
+    public PilotDto() {
+    }
 
-//    public Pilot() {}
-//
-//
-//    public Pilot(String firstName, String lastName, String pilotRank, String pilotCode) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.pilotRank = pilotRank;
-//        this.pilotCode = pilotCode;
-//    }
+    public PilotDto(String firstName) {
+        this.firstName = firstName;
+    }
 
     public long getId() {
         return id;
@@ -73,27 +61,22 @@ public class Pilot {
         this.pilotCode = pilotCode;
     }
 
-    public List<Flight> getFlights() {
+    public List<FlightDto> getFlights() {
         return flights;
     }
 
-    public void setFlights(List<Flight> flights) {
-        if (flights !=null) {
-            flights.forEach(p->{
-                p.setPilot(this);
-            });
-        }
+    public void setFlights(List<FlightDto> flights) {
         this.flights = flights;
     }
 
     @Override
     public String toString() {
-        return "Pilot{" +
+        return "PilotDto{" +
                 "id=" + id +
-                ", firstName=" + firstName +
-                ", lastName=" + lastName +
-                ", pilotRank=" + pilotRank +
-                ", pilotCode=" + pilotCode +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", pilotRank='" + pilotRank + '\'' +
+                ", pilotCode='" + pilotCode + '\'' +
                 ", flights=" + flights +
                 '}';
     }

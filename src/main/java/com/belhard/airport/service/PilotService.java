@@ -1,30 +1,16 @@
 package com.belhard.airport.service;
 
+import com.belhard.airport.dto.PilotDto;
 import com.belhard.airport.entity.Pilot;
-import com.belhard.airport.repository.PilotRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class PilotService {
+public interface PilotService {
 
-    @Autowired
-    private  PilotRepository pilotRepository;
 
-//    public Pilot findPilot(Long id) {
-//        return pilotRepository.getOne();
-//    }
+    public List<PilotDto> getAllPilots ();
+    public List<PilotDto> getAllPilotsWithFlights ();
+    public List<PilotDto> getPilotsByRank (String rank);
 
-    public List <Pilot> getAllPilots(){
-        return (List<Pilot>) pilotRepository.findAll();
-    }
-    public Pilot savePilot (Pilot pilot){
-        return pilotRepository.save(pilot);
-    }
-
-    public void deletePilot (Long id){
-        pilotRepository.deleteById(id);
-    }
+    public void saveEntity (PilotDto pilotDto);
 }
