@@ -23,6 +23,7 @@ public class Pilot {
     @OneToMany (fetch = FetchType.LAZY, mappedBy = "pilot")
     private List<Flight> flights;
 
+
 //    public Pilot() {}
 //
 //

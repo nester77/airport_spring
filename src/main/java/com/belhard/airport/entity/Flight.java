@@ -1,11 +1,7 @@
 package com.belhard.airport.entity;
 
-
-
-
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 
@@ -17,9 +13,9 @@ public class Flight {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-//    @ManyToOne (fetch = FetchType.LAZY)
-//    @JoinColumn (name = "airplane_id", nullable = false)
-//    private Airplane airplane;
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn (name = "airplane_id", nullable = false)
+    private Airplane airplane;
 
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn (name = "pilot_id", nullable = false)
@@ -82,13 +78,13 @@ public class Flight {
         this.flightNumber = flightNumber;
     }
 
-//    public Airplane getAirplane() {
-//        return airplane;
-//    }
-//
-//    public void setAirplane(Airplane airplane) {
-//        this.airplane = airplane;
-//    }
+    public Airplane getAirplane() {
+        return airplane;
+    }
+
+    public void setAirplane(Airplane airplane) {
+        this.airplane = airplane;
+    }
 
     public Pilot getPilot() {
         return pilot;

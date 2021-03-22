@@ -21,6 +21,7 @@
                 <th scope="col">Last Name</th>
                 <th scope="col">Pilot Rank</th>
                 <th scope="col">Pilot Code</th>
+                <th scope="col">Information</th>
             </tr>
             </thead>
             <tbody>
@@ -31,6 +32,7 @@
                         <td><h5 th:text="${el.lastName}"/></td>
                         <td><h5 th:text="${el.pilotRank}" /></td>
                         <td><h5 th:text="${el.pilotCode}" /></td>
+                        <td><a th:href="'/blog/' + ${el.id}" class="btn btn-warning">More details</a></td>
                     </tr>
 
                 </div>

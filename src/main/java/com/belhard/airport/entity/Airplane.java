@@ -1,14 +1,7 @@
 package com.belhard.airport.entity;
 
 
-import javax.persistence.Id;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.GenerationType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.OneToMany;
-
+import javax.persistence.*;
 
 
 import java.util.List;
@@ -16,18 +9,19 @@ import java.util.List;
 @Entity
 @Table(name = "airplanes")
   public class Airplane {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private long id;
-private String brand;
-private String model;
-@Column(name = "passenger_capacity")
-private int passengerCapacity;
-@Column (name = "board_number")
-private String boardNumber;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private long id;
+        private String brand;
+        private String model;
+        @Column(name = "passenger_capacity")
+        private int passengerCapacity;
+        @Column (name = "board_number")
+        private String boardNumber;
 
-//@OneToMany (mappedBy = "airplane")
-//private List<Flight> flights;
+        @OneToMany (fetch = FetchType.LAZY, mappedBy = "airplane")
+        private List<Flight> flights;
+
 
 public Airplane() { }
 
@@ -78,18 +72,18 @@ public Airplane() { }
                 this.boardNumber = boardNumber;
         }
 
-//        public List<Flight> getFlights() {
-//                return flights;
-//        }
+        public List<Flight> getFlights() {
+                return flights;
+        }
 
-//        public void setFlights(List<Flight> flights) {
-//                if (flights !=null) {
-//                        flights.forEach(p->{
-//                                p.setAirplane(this);
-//                        });
-//                }
-//                this.flights = flights;
-//        }
+        public void setFlights(List<Flight> flights) {
+                if (flights !=null) {
+                        flights.forEach(p->{
+                                p.setAirplane(this);
+                        });
+                }
+                this.flights = flights;
+        }
 
         @Override
         public String toString() {

@@ -1,8 +1,5 @@
 package com.belhard.airport.dto;
 
-import com.belhard.airport.entity.Flight;
-
-import javax.persistence.*;
 import java.util.List;
 
 public class PilotDto {

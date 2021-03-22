@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Самолеты</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5">
+    <h1>Airplanes</h1>
+
+
+    <table class="table table-sm table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Model</th>
+            <th scope="col">Passenger capacity</th>
+            <th scope="col">Board number</th>
+            <th scope="col">Information</th>
+        </tr>
+        </thead>
+        <tbody>
+        <div th:each="el: ${airplane}" >
+            <tr>
+                <td><h5 th:text="${airplane.id}" /></td>
+                <td><h5 th:text="${airplane.brand}" /></td>
+                <td><h5 th:text="${airplane.model}"/></td>
+                <td><h5 th:text="${airplane.passengerCapacity}" /></td>
+                <td><h5 th:text="${airplane.boardNumber}" /></td>
+                <td><a th:href="'/airplane/' + ${el.id}" class="btn btn-warning">More details</a></td>
+            </tr>
+
+            <tr>
+                <td><h5 th:text="${airplane.flight.flightDate}" /></td>
+                <td><h5 th:text="${airplane.flight.FlightTime}" /></td>
+                <td><h5 th:text="${airplane.flight.flightNumber}" /></td>
+                <td><h5 th:text="${airplane.boardNumber}" /></td>
+                <td><a th:href="'/airplane/' + ${el.id}" class="btn btn-warning">More details</a></td>
+            </tr>
+        </div>
+        </tbody>
+    </table>
+
+
+
+</div>
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>
