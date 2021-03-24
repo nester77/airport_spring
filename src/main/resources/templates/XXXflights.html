@@ -10,29 +10,27 @@
 <header th:insert="blocks/header::header"></header>
 
 <div class="container mt-5">
-    <h1>Airplanes</h1>
+    <h1>Flights</h1>
 
 
     <table class="table table-sm table-bordered">
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Brand</th>
-            <th scope="col">Model</th>
-            <th scope="col">Passenger capacity</th>
-            <th scope="col">Board number</th>
+            <th scope="col">Flight date</th>
+            <th scope="col">Flight time</th>
+            <th scope="col">Flight number</th>
             <th scope="col">Information</th>
         </tr>
         </thead>
         <tbody>
-        <div th:each="el: ${airplanes}" >
+        <div th:each="el: ${flights}" >
             <tr>
                 <td><h5 th:text="${el.id}" /></td>
-                <td><h5 th:text="${el.brand}" /></td>
-                <td><h5 th:text="${el.model}"/></td>
-                <td><h5 th:text="${el.passengerCapacity}" /></td>
-                <td><h5 th:text="${el.boardNumber}" /></td>
-                <td><a th:href="'/airplane/' + ${el.id}" class="btn btn-warning">More details</a></td>
+                <td><h5 th:text="${el.flightDate}" /></td>
+                <td><h5 th:text="${el.flightTime}"/></td>
+                <td><h5 th:text="${el.flightNumber}" /></td>
+                <td><a th:href="'/flight/' + ${el.id}" class="btn btn-primary">More details</a></td>
             </tr>
 
         </div>
@@ -46,4 +44,3 @@
 <div th:insert="blocks/footer::footer"></div>
 </body>
 </html>
-

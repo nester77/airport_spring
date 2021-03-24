@@ -1,5 +1,6 @@
 package com.belhard.airport.dto;
 
+
 import java.util.Date;
 
 public class FlightDto {
@@ -7,6 +8,8 @@ public class FlightDto {
     private Date flightDate;
     private Date flightTime;
     private String flightNumber;
+    private AirplaneDto airplane;
+    private PilotDto pilot;
 
     public long getId() {
         return id;
@@ -34,6 +37,22 @@ public class FlightDto {
 
     public String getFlightNumber() {
         return flightNumber;
+    }
+
+    public AirplaneDto getAirplane() {
+        return airplane;
+    }
+
+    public void setAirplane(AirplaneDto airplane) {
+        this.airplane = airplane;
+    }
+
+    public PilotDto getPilot() {
+        return pilot;
+    }
+
+    public void setPilot(PilotDto pilot) {
+        this.pilot = pilot;
     }
 
     public void setFlightNumber(String flightNumber) {
