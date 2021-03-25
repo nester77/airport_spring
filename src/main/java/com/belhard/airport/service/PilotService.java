@@ -1,5 +1,6 @@
 package com.belhard.airport.service;
 
+import com.belhard.airport.dto.AirplaneDto;
 import com.belhard.airport.dto.PilotDto;
 import com.belhard.airport.entity.Pilot;
 
@@ -10,7 +11,7 @@ public interface PilotService {
 
     public List<PilotDto> getAllPilots ();
     public List<PilotDto> getAllPilotsWithFlights ();
-    public List<PilotDto> getPilotsByRank (String rank);
+    public PilotDto getPilotById (Long id);
 
     public void saveEntity (PilotDto pilotDto);
 }

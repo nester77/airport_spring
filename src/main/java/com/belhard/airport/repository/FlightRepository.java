@@ -13,11 +13,11 @@ public interface FlightRepository extends JpaRepository <Flight, Long> {
     @Query("SELECT f FROM Flight f")
     public List<Flight> getAllFlight();
 
-//    @Query ("SELECT DISTINCT f FROM Flight f LEFT JOIN FETCH f.airplanes LEFT JOIN FETCH f.pilots")
-//    public List<Flight> getAllFlightWithJoin();
+    @Query("SELECT f FROM Flight f LEFT JOIN FETCH f.airplane LEFT JOIN FETCH f.pilot ORDER BY f.id")
+    public List<Flight> getAllFlightWithJoin();
 
-//    @Query("SELECT f FROM Flight f LEFT JOIN FETCH f.airplanes LEFT JOIN FETCH f.pilots WHERE f.id = :id")
-//    public Flight getFlightById(Long id);
+    @Query("SELECT f FROM Flight f LEFT JOIN FETCH f.airplane LEFT JOIN FETCH f.pilot WHERE f.id = :id")
+    public Flight getFlightById(Long id);
 
 
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Пилот детали</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5">
+    <h1>Pilot</h1>
+
+    <table class="table table-sm table-bordered">
+        <thead>
+        <tr class="table-info">
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Pilot Rank</th>
+            <th scope="col">Pilot Code</th>
+            <th colspan="2" scope="col">Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <div th:each="el: ${pilot}" >
+            <tr class="table-info">
+                <td><h5 th:text="${el.firstName}" /></td>
+                <td><h5 th:text="${el.lastName}"/></td>
+                <td><h5 th:text="${el.pilotRank}" /></td>
+                <td><h5 th:text="${el.pilotCode}" /></td>
+                <td><a th:href="'/pilot-edit/' + ${el.id}" class="btn btn-warning">Edit</a></td>
+                <td><a th:href="'/pilot-delete/' + ${el.id}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        </div>
+    </table>
+
+    <h3>Flights</h3>
+
+    <table class="table table-sm table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Flight date</th>
+            <th scope="col">Flight time</th>
+            <th scope="col">Flight number</th>
+            <th scope="col">Information</th>
+        </tr>
+        </thead>
+        <tbody>
+        <div th:each="el: ${pilot.getFlights}" >
+            <tr>
+                <td><h5 th:text="${el.flightDate}" /></td>
+                <td><h5 th:text="${el.FlightTime}" /></td>
+                <td><h5 th:text="${el.flightNumber}" /></td>
+                <td><a th:href="'/flight/' + ${el.id}" class="btn btn-primary">More details</a></td>
+
+            </tr>
+        </div>
+
+        </tbody>
+    </table>
+
+</div>
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

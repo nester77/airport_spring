@@ -1,10 +1,13 @@
 package com.belhard.airport.controllers;
 
 import com.belhard.airport.dto.FlightDto;
+import com.belhard.airport.dto.PilotDto;
 import com.belhard.airport.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -25,5 +28,13 @@ public class FlightController {
         modelMap.addAttribute("flights", flights);
         return "flights";
     }
+
+    @GetMapping("/flight/{id}")
+    public String flightDetails (@PathVariable(value = "id") long id, ModelMap modelMap) {
+        FlightDto flight = flightService.getFlightByIDWithAirplaneAndPilot(id);
+        modelMap.addAttribute("flight", flight);
+        return "flight-detail";
+    }
+
 
 }

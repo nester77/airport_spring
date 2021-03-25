@@ -106,8 +106,8 @@ public class Flight {
                 ", flightDate=" + converterDate(flightDate)  +
                 ", flightTime=" + flightTime +
                 ", flightNumber='" + flightNumber + '\'' +
-//                ", airplane=" + airplane +
-//                ", pilot=" + pilot +
+                ", airplane=" + airplane +
+                ", pilot=" + pilot +
                 '}';
     }
 }

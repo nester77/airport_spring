@@ -1,5 +1,6 @@
 package com.belhard.airport.service;
 
+import com.belhard.airport.dto.AirplaneDto;
 import com.belhard.airport.dto.FlightDto;
 import com.belhard.airport.dto.PilotDto;
 import com.belhard.airport.entity.Flight;
@@ -34,8 +35,8 @@ public class PilotServiceImpl implements PilotService{
     }
 
     @Override
-    public List<PilotDto> getPilotsByRank(String rank) {
-        return convertFromListEntityToListDto(pilotRepository.getPilotByRank(rank));
+    public PilotDto getPilotById(Long id) {
+        return convertFromEntityWithFlightsToDto(pilotRepository.getPilotById(id));
     }
 
     @Override

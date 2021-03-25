@@ -8,8 +8,8 @@ public interface FlightService {
 
 
     public List<FlightDto> getAllFlights ();
-//    public List<FlightDto> getAllFlightsWithAirplaneAndPilot();
-//    public FlightDto getFlightByIDWithAirplaneAndPilot (Long id);
+    public List<FlightDto> getAllFlightsWithAirplaneAndPilot();
+    public FlightDto getFlightByIDWithAirplaneAndPilot (Long id);
 
 
 

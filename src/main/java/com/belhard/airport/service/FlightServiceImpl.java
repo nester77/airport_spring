@@ -28,15 +28,15 @@ public class FlightServiceImpl implements FlightService{
         return convertFromListEntityToListDto(flightRepository.getAllFlight());
     }
 
-//    @Override
-//    public List<FlightDto> getAllFlightsWithAirplaneAndPilot() {
-//        return convertFromListEntityWithAirplaneAndPilotToListDto(flightRepository.getAllFlightWithJoin());
-//    }
+    @Override
+    public List<FlightDto> getAllFlightsWithAirplaneAndPilot() {
+        return convertFromListEntityWithAirplaneAndPilotToListDto(flightRepository.getAllFlightWithJoin());
+    }
 
-//    @Override
-//    public FlightDto getFlightByIDWithAirplaneAndPilot (Long id) {
-//        return convertFromEntityWithAirplaneAndPilotToDto(flightRepository.getFlightById(id));
-//    }
+    @Override
+    public FlightDto getFlightByIDWithAirplaneAndPilot (Long id) {
+        return convertFromEntityWithAirplaneAndPilotToDto(flightRepository.getFlightById(id));
+    }
 
     @Override
     @Transactional
@@ -62,10 +62,10 @@ public class FlightServiceImpl implements FlightService{
         flightDto.setFlightTime(flight.getFlightTime());
         flightDto.setFlightNumber(flight.getFlightNumber());
 
-        AirplaneDto airplane = new AirplaneDto();
-        flightDto.setAirplane (airplane);
-        PilotDto pilot = new PilotDto();
-        flightDto.setPilot(pilot);
+//        AirplaneDto airplane = new AirplaneDto();
+//        flightDto.setAirplane (airplane);
+//        PilotDto pilot = new PilotDto();
+//        flightDto.setPilot(pilot);
 
         return flightDto;
     }

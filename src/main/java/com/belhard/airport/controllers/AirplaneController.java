@@ -29,7 +29,7 @@ public class AirplaneController {
     }
 
     @GetMapping("/airplane/{id}")
-    public String pilotDetails (@PathVariable(value = "id") long id, ModelMap modelMap) {
+    public String airplaneDetails (@PathVariable(value = "id") long id, ModelMap modelMap) {
 
        AirplaneDto airplane = airplaneService.getAirplaneByID(id);
        modelMap.addAttribute("airplane",airplane);

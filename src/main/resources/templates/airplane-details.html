@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Самолеты</title>
+    <title>Самолет детали</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -14,7 +14,7 @@
 
     <table class="table table-sm table-bordered">
         <thead>
-        <tr>
+        <tr class="table-info">
             <th scope="col">Brand</th>
             <th scope="col">Model</th>
             <th scope="col">Passenger capacity</th>
@@ -25,18 +25,18 @@
 
         <tbody>
         <div th:each="el: ${airplane}" >
-            <tr>
-                <td><h5 th:text="${airplane.brand}" /></td>
-                <td><h5 th:text="${airplane.model}"/></td>
-                <td><h5 th:text="${airplane.passengerCapacity}" /></td>
-                <td><h5 th:text="${airplane.boardNumber}" /></td>
+            <tr class="table-info">
+                <td><h5 th:text="${el.brand}" /></td>
+                <td><h5 th:text="${el.model}"/></td>
+                <td><h5 th:text="${el.passengerCapacity}" /></td>
+                <td><h5 th:text="${el.boardNumber}" /></td>
                 <td><a th:href="'/airplane-edit/' + ${el.id}" class="btn btn-warning">Edit</a></td>
                 <td><a th:href="'/airplane-delete/' + ${el.id}" class="btn btn-danger">Delete</a></td>
             </tr>
         </div>
         </table>
 
-        <h1>Flights</h1>
+        <h3>Flights</h3>
 
         <table class="table table-sm table-bordered">
             <thead>

@@ -66,6 +66,8 @@ public class FlightDto {
                 ", flightDate=" + flightDate +
                 ", flightTime=" + flightTime +
                 ", flightNumber='" + flightNumber + '\'' +
+                ", airplane=" + airplane +
+                ", pilot=" + pilot +
                 '}';
     }
 }

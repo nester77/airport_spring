@@ -41,7 +41,19 @@ public class AirportApplication
 //		for (FlightDto flight:flightList) {
 //			System.out.println(flight);
 //		}
-
+//
+//        System.out.println("_____________________________");
+//
+//		flightList = flightService.getAllFlightsWithAirplaneAndPilot();
+//		for (FlightDto flight:flightList) {
+//			System.out.println(flight);
+//		}
+//
+//        System.out.println("_____________________________");
+//
+//		System.out.println(flightService.getFlightByIDWithAirplaneAndPilot((long) 13));
+//
+//
 
 //        List<PilotDto> pilotList = pilotService.getAllPilotsWithFlights();
 //        for (PilotDto pilot:pilotList) {
