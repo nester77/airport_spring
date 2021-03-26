@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Airplane creation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Airplane creation</h1>
+    <div th:each="el: ${airplane}" >
+        <form action="/airplane-save" method="post">
+            <input type="hidden" th:value="${el.id}" name="id"  class="form-control"><br>
+            <h3>Brand</h3>
+            <input type="text"  name="brand" placeholder="Enter brand" class="form-control"><br>
+            <h3>Model</h3>
+            <input type="text"  name="model" placeholder="Enter model" class="form-control"><br>
+            <h3>Passenger capacity</h3>
+            <input type="text"  name="passengerCapacity" placeholder="Enter passenger capacity" class="form-control"><br>
+            <h3>Board number</h3>
+            <input type="text"  name="boardNumber" placeholder="Enter board number" class="form-control"><br>
+
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+
+    </div>
+</div>
+
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

@@ -103,6 +103,9 @@ public class AirplaneServiceImpl implements AirplaneService{
 
     private Airplane convertFromDtoToEntity (AirplaneDto airplaneDto){
         Airplane airplane = new Airplane();
+        if (airplaneDto.getId() !=0){
+            airplane.setId(airplaneDto.getId());
+        }
         airplane.setBrand(airplaneDto.getBrand());
         airplane.setModel(airplaneDto.getModel());
         airplane.setPassengerCapacity(airplaneDto.getPassengerCapacity());
