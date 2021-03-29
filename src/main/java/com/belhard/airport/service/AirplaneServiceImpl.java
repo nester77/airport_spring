@@ -44,6 +44,11 @@ public class AirplaneServiceImpl implements AirplaneService{
     }
 
     @Override
+    public List<AirplaneDto> searchAirplanes(String string) {
+        return convertFromListEntityToListDto(airplaneRepository.searchAirplanes(string));
+    }
+
+    @Override
     @Transactional
     public void saveEntity(AirplaneDto airplaneDto) {
         Airplane airplane= convertFromDtoToEntity(airplaneDto);

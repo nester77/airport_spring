@@ -99,6 +99,9 @@ public class PilotServiceImpl implements PilotService{
 
     private Pilot convertFromDtoToEntity (PilotDto pilotDto){
         Pilot pilot = new Pilot();
+        if (pilotDto.getId() !=0){
+            pilot.setId(pilotDto.getId());
+        }
         pilot.setFirstName(pilotDto.getFirstName());
         pilot.setLastName(pilotDto.getLastName());
         pilot.setPilotRank(pilotDto.getPilotRank());

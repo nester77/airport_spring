@@ -11,7 +11,7 @@ public interface AirplaneService {
     public List<AirplaneDto> getAllAirplanesWithFlights ();
     public List<AirplaneDto> getAirplanesByBrand (String brand);
     public AirplaneDto getAirplaneByID (Long id);
-
+    public List<AirplaneDto> searchAirplanes (String string);
 
 
     public void saveEntity (AirplaneDto airplaneDto);

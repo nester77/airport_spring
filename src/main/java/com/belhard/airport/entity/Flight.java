@@ -1,5 +1,7 @@
 package com.belhard.airport.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,17 +36,6 @@ public class Flight {
     @Column(name = "flight_number")
     private String flightNumber;
 
-
-
-//    public Flight() {    }
-//
-//    public Flight(Calendar flightDate, Date flightTime, String flightNumber, Airplane airplane, Pilot pilot) {
-//        this.flightDate = flightDate;
-//        this.flightTime = flightTime;
-//        this.flightNumber = flightNumber;
-//        this.airplane = airplane;
-//        this.pilot = pilot;
-//    }
 
     public long getId() {
         return id;

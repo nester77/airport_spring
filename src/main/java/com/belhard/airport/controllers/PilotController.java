@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -39,5 +40,24 @@ public class PilotController {
         return "pilot-details";
     }
 
+    @RequestMapping("/pilot-edit/{id}")
+    public String editPilot(@PathVariable(value = "id") long id, ModelMap modelMap){
+        PilotDto pilot = pilotService.getPilotById(id);
+        modelMap.addAttribute("pilot", pilot);
+        return "pilot-edit";
+    }
 
+    @RequestMapping("/pilot-save")
+    public String savePilot(@ModelAttribute("pilot")PilotDto pilotDto){
+        pilotService.saveEntity(pilotDto);
+        return "redirect:/pilots";
+    }
+
+
+    @RequestMapping("/pilot-new")
+    public String addPilot(ModelMap modelMap){
+        PilotDto pilot = new PilotDto();
+        modelMap.addAttribute("pilot", pilot);
+        return "pilot-new";
+    }
 }

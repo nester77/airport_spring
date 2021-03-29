@@ -21,6 +21,9 @@ public interface AirplaneRepository extends JpaRepository <Airplane, Long> {
     @Query("SELECT a FROM Airplane a LEFT JOIN FETCH a.flights WHERE a.id = :id")
     public Airplane getAirplaneById(Long id);
 
+    @Query("SELECT DISTINCT a FROM Airplane a WHERE a.brand LIKE CONCAT('%', :string, '%')")
+    public List<Airplane> searchAirplanes(String string);
+
 
 
 

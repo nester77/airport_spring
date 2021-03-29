@@ -3,7 +3,9 @@ package com.belhard.airport.service;
 import com.belhard.airport.dto.FlightDto;
 import com.belhard.airport.dto.AirplaneDto;
 import com.belhard.airport.dto.PilotDto;
+import com.belhard.airport.entity.Airplane;
 import com.belhard.airport.entity.Flight;
+import com.belhard.airport.entity.Pilot;
 import com.belhard.airport.repository.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +41,11 @@ public class FlightServiceImpl implements FlightService{
     }
 
     @Override
+    public void deleteById(Long id) {
+        flightRepository.deleteById(id);
+    }
+
+    @Override
     @Transactional
     public void saveEntity(FlightDto flightDto) {
         Flight flight= convertFromDtoToEntity(flightDto);
@@ -62,10 +69,6 @@ public class FlightServiceImpl implements FlightService{
         flightDto.setFlightTime(flight.getFlightTime());
         flightDto.setFlightNumber(flight.getFlightNumber());
 
-//        AirplaneDto airplane = new AirplaneDto();
-//        flightDto.setAirplane (airplane);
-//        PilotDto pilot = new PilotDto();
-//        flightDto.setPilot(pilot);
 
         return flightDto;
     }
@@ -108,9 +111,33 @@ public class FlightServiceImpl implements FlightService{
 
     private Flight convertFromDtoToEntity (FlightDto flightDto){
         Flight flight = new Flight();
+        if (flightDto.getId() !=0){
+            flight.setId(flightDto.getId());
+        }
         flight.setFlightDate(flightDto.getFlightDate());
         flight.setFlightTime(flightDto.getFlightTime());
         flight.setFlightNumber(flightDto.getFlightNumber());
+
+        Airplane airplane= new Airplane();
+        if (flightDto.getAirplane().getId() !=0){
+            airplane.setId(flightDto.getAirplane().getId());
+        }
+        airplane.setBrand(flightDto.getAirplane().getBrand());
+        airplane.setModel(flightDto.getAirplane().getModel());
+        airplane.setPassengerCapacity(flightDto.getAirplane().getPassengerCapacity());
+        airplane.setBoardNumber(flightDto.getAirplane().getBoardNumber());
+
+        Pilot pilot= new Pilot();
+        if (flightDto.getPilot().getId() !=0){
+            pilot.setId(flightDto.getPilot().getId());
+        }
+        pilot.setFirstName(flightDto.getPilot().getFirstName());
+        pilot.setLastName(flightDto.getPilot().getLastName());
+        pilot.setPilotRank(flightDto.getPilot().getPilotRank());
+        pilot.setPilotCode(flightDto.getPilot().getPilotCode());
+
+        flight.setAirplane(airplane);
+        flight.setPilot(pilot);
 
         return flight;
     }

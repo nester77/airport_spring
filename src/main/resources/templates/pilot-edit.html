@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pilot editing</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Pilot editing</h1>
+    <div th:each="el: ${pilot}" >
+        <form action="/pilot-save" method="post">
+            <input type="hidden" th:value="${el.id}" name="id"  class="form-control"><br>
+            <h3>First Name</h3>
+            <input type="text" th:value="${el.firstName}" name="firstName" placeholder="Enter first name" class="form-control"><br>
+            <h3>Last Name</h3>
+            <input type="text" th:value="${el.lastName}" name="lastName" placeholder="Enter last name" class="form-control"><br>
+            <h3>Pilot Rank</h3>
+            <input type="text" th:value="${el.pilotRank}" name="pilotRank" placeholder="Enter pilot rank" class="form-control"><br>
+            <h3>Pilot Code</h3>
+            <input type="text" th:value="${el.pilotCode}" name="pilotCode" placeholder="Enter pilot code" class="form-control"><br>
+
+            <button type="submit" class="btn btn-warning">Edit</button>
+        </form>
+    </div>
+</div>
+
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>

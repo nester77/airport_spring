@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Flight creation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<header th:insert="blocks/header::header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Flight creation</h1>
+    <div th:each="el: ${flight}" >
+        <form action="/flight-save" method="post">
+            <input type="hidden" th:value="${el.id}" name="id"  class="form-control"><br>
+            <h3>Flight date</h3>
+            <input type="date" th:value="${el.flightDate}" name="flightDate" placeholder="Enter flight date" class="form-control"><br>
+<!--            <h3>Flight time</h3>-->
+<!--            <input type="time" th:value="${el.flightTime}" name="flightTime" placeholder="Enter flight time" class="form-control"><br>-->
+            <h3>Flight number</h3>
+            <input type="text" th:value="${el.flightNumber}" name="flightNumber" placeholder="Enter flight number" class="form-control"><br>
+
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+
+    </div>
+</div>
+
+
+<div th:insert="blocks/footer::footer"></div>
+</body>
+</html>
