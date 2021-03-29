@@ -2,8 +2,10 @@ package com.belhard.airport.controllers;
 
 import com.belhard.airport.dto.AirplaneDto;
 import com.belhard.airport.dto.FlightDto;
+import com.belhard.airport.dto.PilotDto;
 import com.belhard.airport.service.AirplaneService;
 import com.belhard.airport.service.FlightService;
+import com.belhard.airport.service.PilotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,14 +18,21 @@ public class FlightController {
 
     private FlightService flightService;
     private AirplaneService airplaneService;
+    private PilotService pilotService;
+
+    @Autowired
+    public FlightController(FlightService flightService) {
+        this.flightService = flightService;
+    }
 
     @Autowired
     public void AirplaneController(AirplaneService airplaneService) {
         this.airplaneService = airplaneService;
     }
+
     @Autowired
-    public FlightController(FlightService flightService) {
-        this.flightService = flightService;
+    public void PilotController(PilotService pilotService) {
+        this.pilotService = pilotService;
     }
 
     @RequestMapping("/flights")
@@ -46,7 +55,21 @@ public class FlightController {
         modelMap.addAttribute("flight", flight);
         List<AirplaneDto> airplanes = airplaneService.getAllAirplanes();
         modelMap.addAttribute("airplanes", airplanes);
+        List<PilotDto> pilots = pilotService.getAllPilots();
+        modelMap.addAttribute("pilots", pilots);
         return "flight-edit";
+    }
+
+    @RequestMapping("/flight-new")
+    public String addAirplane(ModelMap modelMap){
+        FlightDto flight = new FlightDto();
+        modelMap.addAttribute("flight", flight);
+        List<AirplaneDto> airplanes = airplaneService.getAllAirplanes();
+        modelMap.addAttribute("airplanes", airplanes);
+        List<PilotDto> pilots = pilotService.getAllPilots();
+        modelMap.addAttribute("pilots", pilots);
+        return "flight-new";
+
     }
 
     @RequestMapping("/flight-save")
@@ -55,13 +78,6 @@ public class FlightController {
         return "redirect:/flights";
     }
 
-
-    @RequestMapping("flight-new")
-    public String addAirplane(ModelMap modelMap){
-        FlightDto flight = new FlightDto();
-        modelMap.addAttribute("flight", flight);
-        return "flight-new";
-    }
 
     @GetMapping("/flight-delete/{id}")
     public  String flightDelete (@PathVariable(value = "id") long id, ModelMap modelMap) {

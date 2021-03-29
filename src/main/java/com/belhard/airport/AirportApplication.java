@@ -79,10 +79,10 @@ public class AirportApplication
 //        }
 //        System.out.println("_____________________________");
 //
-        List<AirplaneDto> airplaneList = airplaneService.searchAirplanes("z");
-        for (AirplaneDto airplane:airplaneList) {
-            System.out.println(airplane);
-        }
+//        List<AirplaneDto> airplaneList = airplaneService.searchAirplanes("z");
+//        for (AirplaneDto airplane:airplaneList) {
+//            System.out.println(airplane);
+//        }
 //
 //        System.out.println(airplaneService.getAirplaneByID((long) 3));
 
