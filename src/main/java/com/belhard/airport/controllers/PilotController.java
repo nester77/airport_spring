@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -59,5 +56,12 @@ public class PilotController {
         PilotDto pilot = new PilotDto();
         modelMap.addAttribute("pilot", pilot);
         return "pilot-new";
+    }
+
+    @PostMapping("/pilots-search-results")
+    public String getSearchPilots ( @RequestParam String string, ModelMap modelMap){
+        List<PilotDto> pilots = pilotService.searchPilots(string);
+        modelMap.addAttribute("pilots", pilots);
+        return "/pilots-search-results";
     }
 }

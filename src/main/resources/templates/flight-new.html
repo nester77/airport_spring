@@ -30,7 +30,7 @@
 
 
         <select th:field="*{airplane}" class="mb-3 form-control" >
-            <option th:each="airplane: ${airplanes}" th:value="${airplane.id}" th:text="'#'+${airplane.id}+${airplane.brand}+' '+ ${airplane.model} +' '+ '('+${airplane.passengerCapacity}+ passengers+')'+' '+ ${airplane.boardNumber} "></option>
+            <option th:each="airplane: ${airplanes}" th:value="${airplane}" th:text="'#'+${airplane.id}+${airplane.brand}+' '+ ${airplane.model} +' '+ '('+${airplane.passengerCapacity}+ passengers+')'+' '+ ${airplane.boardNumber} "></option>
         </select>
 
 
@@ -39,7 +39,7 @@
 
 
         <select th:field="*{pilot}" class="mb-5 form-control" >
-            <option th:each="pilot: ${pilots}" th:value="${pilot.id}" th:text="'#'+${pilot.id}+${pilot.firstName}+' '+ ${pilot.lastName} +' '+ ${pilot.pilotRank}+' '+ ${pilot.pilotCode} "></option>
+            <option th:each="pilot: ${pilots}" th:value="${pilot}" th:text="'#'+${pilot.id}+${pilot.firstName}+' '+ ${pilot.lastName} +' '+ ${pilot.pilotRank}+' '+ ${pilot.pilotCode} "></option>
         </select>
         <button type="submit" class="btn btn-success">Save</button>
 

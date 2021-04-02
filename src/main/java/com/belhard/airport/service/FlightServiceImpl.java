@@ -46,6 +46,11 @@ public class FlightServiceImpl implements FlightService{
     }
 
     @Override
+    public List<FlightDto> searchFlights(String string) {
+        return convertFromListEntityToListDto(flightRepository.searchFlights(string));
+    }
+
+    @Override
     @Transactional
     public void saveEntity(FlightDto flightDto) {
         Flight flight= convertFromDtoToEntity(flightDto);

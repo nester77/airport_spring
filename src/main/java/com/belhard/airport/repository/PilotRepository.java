@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.persistence.Column;
 import java.util.List;
 
 
@@ -20,4 +21,13 @@ public interface PilotRepository extends JpaRepository<Pilot, Long> {
 
     @Query ("SELECT DISTINCT p FROM Pilot p LEFT JOIN FETCH p.flights")
     public List<Pilot> getAllPilotWithJoin();
+
+
+    @Query("SELECT DISTINCT p FROM Pilot p WHERE p.firstName LIKE CONCAT('%', :string, '%') OR " +
+            "p.lastName LIKE CONCAT('%', :string, '%') OR " +
+            "p.pilotRank LIKE CONCAT('%', :string, '%') OR "+
+            "p.pilotCode LIKE CONCAT('%', :string, '%')")
+    public List<Pilot> searchPilots(String string);
+
 }
+

@@ -85,6 +85,13 @@ public class FlightController {
         return "redirect:/flights";
     }
 
+    @PostMapping("/flights-search-results")
+    public String getSearchFlights ( @RequestParam String string, ModelMap modelMap){
+        List<FlightDto> flights = flightService.searchFlights(string);
+        modelMap.addAttribute("flights", flights);
+        return "/flights-search-results";
+    }
+
 //    @InitBinder
 //    public void initBinder(WebDataBinder binder)
 //    {

@@ -79,7 +79,7 @@ public class AirportApplication
 //        }
 //        System.out.println("_____________________________");
 //
-//        List<AirplaneDto> airplaneList = airplaneService.searchAirplanes("z");
+//        List<AirplaneDto> airplaneList = airplaneService.searchAirplanes("316");
 //        for (AirplaneDto airplane:airplaneList) {
 //            System.out.println(airplane);
 //        }

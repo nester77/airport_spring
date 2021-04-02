@@ -40,6 +40,11 @@ public class PilotServiceImpl implements PilotService{
     }
 
     @Override
+    public List<PilotDto> searchPilots(String string) {
+        return convertFromListEntityToListDto(pilotRepository.searchPilots(string));
+    }
+
+    @Override
     @Transactional
     public void saveEntity(PilotDto pilotDto) {
         Pilot pilot= convertFromDtoToEntity(pilotDto);

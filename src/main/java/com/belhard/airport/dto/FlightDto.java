@@ -1,21 +1,19 @@
 package com.belhard.airport.dto;
 
-
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import java.util.Date;
 
 public class FlightDto {
     private long id;
+    private AirplaneDto airplane;
+    private PilotDto pilot;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date flightDate;
     @DateTimeFormat(pattern = "hh:mm")
     private Date flightTime;
     private String flightNumber;
-    private AirplaneDto airplane;
-    private PilotDto pilot;
+
 
     public long getId() {
         return id;
@@ -69,11 +67,11 @@ public class FlightDto {
     public String toString() {
         return "FlightDto{" +
                 "id=" + id +
+                ", airplane=" + airplane +
+                ", pilot=" + pilot +
                 ", flightDate=" + flightDate +
                 ", flightTime=" + flightTime +
                 ", flightNumber='" + flightNumber + '\'' +
-                ", airplane=" + airplane +
-                ", pilot=" + pilot +
                 '}';
     }
 }

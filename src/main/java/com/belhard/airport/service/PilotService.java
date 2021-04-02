@@ -12,6 +12,7 @@ public interface PilotService {
     public List<PilotDto> getAllPilots ();
     public List<PilotDto> getAllPilotsWithFlights ();
     public PilotDto getPilotById (Long id);
+    public List<PilotDto> searchPilots (String string);
 
     public void saveEntity (PilotDto pilotDto);
 }
