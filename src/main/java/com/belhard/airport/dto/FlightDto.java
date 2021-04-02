@@ -6,14 +6,13 @@ import java.util.Date;
 
 public class FlightDto {
     private long id;
-    private AirplaneDto airplane;
-    private PilotDto pilot;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date flightDate;
-    @DateTimeFormat(pattern = "hh:mm")
+    @DateTimeFormat(pattern = "HH:mm")
     private Date flightTime;
     private String flightNumber;
-
+    private AirplaneDto airplane;
+    private PilotDto pilot;
 
     public long getId() {
         return id;

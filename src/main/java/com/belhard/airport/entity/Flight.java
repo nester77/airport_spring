@@ -15,15 +15,6 @@ public class Flight {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn (name = "airplane_id", nullable = false)
-    private Airplane airplane;
-
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn (name = "pilot_id", nullable = false)
-    private Pilot pilot;
-
-
 
     @Column (name = "flight_date")
     @Temporal(TemporalType.DATE)
@@ -35,6 +26,14 @@ public class Flight {
 
     @Column(name = "flight_number")
     private String flightNumber;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn (name = "airplane_id", nullable = false)
+    private Airplane airplane;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn (name = "pilot_id", nullable = false)
+    private Pilot pilot;
 
 
     public long getId() {
