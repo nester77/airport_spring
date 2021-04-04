@@ -20,7 +20,7 @@ public class Pilot {
     @Column (name = "pilot_code")
     private String pilotCode;
 
-    @OneToMany (fetch = FetchType.LAZY, mappedBy = "pilot")
+    @OneToMany (fetch = FetchType.LAZY, mappedBy = "pilot", cascade = CascadeType.REMOVE)
     private List<Flight> flights;
 
 

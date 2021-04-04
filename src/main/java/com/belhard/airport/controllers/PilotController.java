@@ -1,6 +1,5 @@
 package com.belhard.airport.controllers;
 
-import com.belhard.airport.dto.AirplaneDto;
 import com.belhard.airport.dto.PilotDto;
 import com.belhard.airport.service.PilotService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +49,11 @@ public class PilotController {
         return "redirect:/pilots";
     }
 
+    @GetMapping("/pilot-delete/{id}")
+    public  String airplaneDelete (@PathVariable(value = "id") long id, ModelMap modelMap) {
+        pilotService.deleteById(id);
+        return "redirect:/pilots";
+    }
 
     @RequestMapping("/pilot-new")
     public String addPilot(ModelMap modelMap){
@@ -62,6 +66,7 @@ public class PilotController {
     public String getSearchPilots ( @RequestParam String string, ModelMap modelMap){
         List<PilotDto> pilots = pilotService.searchPilots(string);
         modelMap.addAttribute("pilots", pilots);
+        modelMap.addAttribute("string", string);
         return "/pilots-search-results";
     }
 }

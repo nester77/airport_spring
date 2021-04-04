@@ -14,10 +14,10 @@
 <div class="container mt-5">
 
     <h1>Airplanes</h1>
+    <h4> Showing results on request <span th:text="' **'+${string}+'**'"></span></h4>
     <table class="table table-sm table-bordered">
         <thead>
         <tr>
-            <th scope="col">#</th>
             <th scope="col">Brand</th>
             <th scope="col">Model</th>
             <th scope="col">Passenger capacity</th>
@@ -28,7 +28,6 @@
         <tbody>
         <div th:each="el: ${airplanes}" >
             <tr>
-                <td><h5 th:text="${el.id}" /></td>
                 <td><h5 th:text="${el.brand}" /></td>
                 <td><h5 th:text="${el.model}"/></td>
                 <td><h5 th:text="${el.passengerCapacity}" /></td>

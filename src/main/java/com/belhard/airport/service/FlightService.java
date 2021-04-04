@@ -13,6 +13,5 @@ public interface FlightService {
     public FlightDto getFlightByIDWithAirplaneAndPilot (Long id);
     public void deleteById (Long id);
     public List<FlightDto> searchFlights (String string);
-
     public void saveEntity (FlightDto flightDto);
 }

@@ -89,24 +89,9 @@ public class FlightController {
     public String getSearchFlights ( @RequestParam String string, ModelMap modelMap){
         List<FlightDto> flights = flightService.searchFlights(string);
         modelMap.addAttribute("flights", flights);
+        modelMap.addAttribute("string", string);
         return "/flights-search-results";
     }
 
-//    @InitBinder
-//    public void initBinder(WebDataBinder binder)
-//    {
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-//        dateFormat.setLenient(false);
-//        binder.registerCustomEditor(Date.class, new CustomDateEditor(
-//                dateFormat, true));
-//    }
 
-//    @InitBinder
-//    public void initBinderTime(WebDataBinder binder)
-//    {
-//        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
-//        timeFormat.setLenient(false);
-//        binder.registerCustomEditor(Date.class, new CustomDateEditor(
-//                timeFormat, true));
-//    }
 }

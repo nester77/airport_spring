@@ -1,6 +1,5 @@
 package com.belhard.airport.service;
 
-import com.belhard.airport.dto.AirplaneDto;
 import com.belhard.airport.dto.FlightDto;
 import com.belhard.airport.dto.PilotDto;
 import com.belhard.airport.entity.Flight;
@@ -42,6 +41,11 @@ public class PilotServiceImpl implements PilotService{
     @Override
     public List<PilotDto> searchPilots(String string) {
         return convertFromListEntityToListDto(pilotRepository.searchPilots(string));
+    }
+
+    @Override
+    public void deleteById(long id) {
+        pilotRepository.deleteById(id);
     }
 
     @Override

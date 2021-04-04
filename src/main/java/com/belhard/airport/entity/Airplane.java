@@ -19,7 +19,7 @@ import java.util.List;
         @Column (name = "board_number")
         private String boardNumber;
 
-        @OneToMany (fetch = FetchType.LAZY, mappedBy = "airplane")
+        @OneToMany (fetch = FetchType.LAZY, mappedBy = "airplane", cascade = CascadeType.REMOVE)
         private List<Flight> flights;
 
 

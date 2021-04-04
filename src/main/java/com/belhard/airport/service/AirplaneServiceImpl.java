@@ -34,13 +34,13 @@ public class AirplaneServiceImpl implements AirplaneService{
     }
 
     @Override
-    public List<AirplaneDto> getAirplanesByBrand(String brand) {
-        return convertFromListEntityToListDto(airplaneRepository.getAirplaneByBrand(brand));
+    public AirplaneDto getAirplaneByID (Long id) {
+        return convertFromEntityWithFlightsToDto(airplaneRepository.getAirplaneById(id));
     }
 
     @Override
-    public AirplaneDto getAirplaneByID (Long id) {
-        return convertFromEntityWithFlightsToDto(airplaneRepository.getAirplaneById(id));
+    public void deleteById(Long id) {
+        airplaneRepository.deleteById(id);
     }
 
     @Override

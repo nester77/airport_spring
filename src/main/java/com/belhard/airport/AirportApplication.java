@@ -17,9 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.List;
 
 @SpringBootApplication
-public class AirportApplication
-        implements CommandLineRunner
-{
+public class AirportApplication implements CommandLineRunner {
 
     @Autowired
     private PilotService pilotService;

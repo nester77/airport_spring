@@ -27,6 +27,7 @@ public interface FlightRepository extends JpaRepository <Flight, Long> {
     @Query("SELECT DISTINCT f FROM Flight f WHERE f.flightDate LIKE CONCAT('%', :string, '%') OR " +
             "f.flightTime LIKE CONCAT('%', :string, '%') OR " +
             "f.flightNumber LIKE CONCAT('%', :string, '%')")
+
     public List<Flight> searchFlights(String string);
 
 
