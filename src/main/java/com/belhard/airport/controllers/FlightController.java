@@ -74,6 +74,8 @@ public class FlightController {
 
     @RequestMapping("/flight-save")
     public String saveFlight(@ModelAttribute("flight")FlightDto flightDto){
+        flightDto.setAirplane(airplaneService.getAirplaneByID(flightDto.getAirplane().getId()));
+        flightDto.setPilot(pilotService.getPilotById(flightDto.getPilot().getId()));
         flightService.saveEntity(flightDto);
         return "redirect:/flights";
     }
