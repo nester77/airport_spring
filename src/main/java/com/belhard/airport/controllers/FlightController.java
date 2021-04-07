@@ -20,6 +20,7 @@ public class FlightController {
     private AirplaneService airplaneService;
     private PilotService pilotService;
 
+
     @Autowired
     public FlightController(FlightService flightService, AirplaneService airplaneService, PilotService pilotService) {
         this.flightService = flightService;
