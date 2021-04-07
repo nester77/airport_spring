@@ -21,19 +21,13 @@ public class FlightController {
     private PilotService pilotService;
 
     @Autowired
-    public FlightController(FlightService flightService) {
+    public FlightController(FlightService flightService, AirplaneService airplaneService, PilotService pilotService) {
         this.flightService = flightService;
-    }
-
-    @Autowired
-    public void AirplaneController(AirplaneService airplaneService) {
         this.airplaneService = airplaneService;
-    }
-
-    @Autowired
-    public void PilotController(PilotService pilotService) {
         this.pilotService = pilotService;
     }
+
+
 
     @RequestMapping("/flights")
     public String getAllFlights(ModelMap modelMap){
